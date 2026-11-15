@@ -93,27 +93,27 @@ The notebook finds the dataset by walking up from its own working directory unti
 reaches `Datasets/`. It therefore runs from the repository root and from the `Notebook`
 folder without a change to any path.
 
-A full run on a laptop processor takes about one minute. The gradient boosting model is the
+A full run on a laptop processor takes about 45 seconds. The gradient boosting model is the
 slowest step.
 
 ## Results at a glance
 
-All figures below come from the executable notebook on a stratified 24,000-row sample
-(16,800 train / 7,200 test), with the seventeen features the notebook selects.
+All figures below come from the executable notebook on the full dataset, 235,370 rows
+(164,759 train / 70,611 test), with the seventeen features the notebook selects.
 
 | Model | Accuracy | F1 |
 |---|---|---|
-| Random Forest | 0.9986 | 0.9986 |
-| Gradient Boosting | 0.9978 | 0.9978 |
-| Multi layer perceptron | 0.9968 | 0.9968 |
-| Decision Tree | 0.9954 | 0.9954 |
-| Logistic Regression | 0.9947 | 0.9947 |
-| Gaussian Naive Bayes | 0.9928 | 0.9928 |
-| Perceptron | 0.9926 | 0.9926 |
-| k Nearest Neighbours | 0.9896 | 0.9896 |
+| Multi layer perceptron | 0.9996 | 0.9997 |
+| Random Forest | 0.9995 | 0.9996 |
+| Gradient Boosting | 0.9993 | 0.9994 |
+| Decision Tree | 0.9986 | 0.9988 |
+| Logistic Regression | 0.9984 | 0.9986 |
+| k Nearest Neighbours | 0.9978 | 0.9981 |
+| Perceptron | 0.9974 | 0.9977 |
+| Gaussian Naive Bayes | 0.9944 | 0.9951 |
 
-Unsupervised: K-Means matches the two classes with ARI 0.869, the Gaussian mixture (EM)
-with ARI 0.963.
+Unsupervised: K-Means matches the two classes with ARI 0.892, the Gaussian mixture (EM)
+with ARI 0.985.
 
 Two findings are worth stating up front. First, three supplied columns compare the URL with
 the brand's official URL or title, so they come close to encoding the label. The notebook
@@ -134,10 +134,8 @@ DMML-CourseWork01/
 
 ## Notes and limitations
 
-* Models are trained on a stratified sample of 24,000 rows rather than the full
-  235,370, so that the notebook runs end to end on a laptop in a few minutes. The
-  conclusions about which feature families matter are unaffected; the absolute
-  scores would move by a fraction of a percentage point on the full data.
+* The models are trained on all 235,370 rows, and the whole notebook runs in about
+  45 seconds on a laptop processor.
 * All examples come from a single collection period, so no temporal split is
   possible. A model trained on this data would decay as phishing campaigns change.
 * No convolutional network is used, because the brief pairs the CNN with an image dataset
