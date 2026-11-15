@@ -57,16 +57,17 @@ unzip phiusiil+phishing+url+dataset.zip
 ### Models compared
 
 Classical (R3): Gaussian Naive Bayes, Logistic Regression, Perceptron,
-k-Nearest Neighbours, Decision Tree, Random Forest, Histogram Gradient Boosting.
+k-Nearest Neighbours, Decision Tree, Random Forest, Gradient Boosting.
 
 Neural (R4): a Multi-Layer Perceptron on the engineered features, and BERT-lite
 (`google/bert_uncased_L-2_H-128_A-2`) mean-pooled URL embeddings with an MLP head.
 
 No convolutional network is used. Section 3.2 of the brief ties the CNN to an image
-dataset, and this topic has no image data. Step 12.3 of the notebook records the reason.
+dataset, and this topic has no image data. The notebook says so in the Step 12 introduction.
 
-Unsupervised (R2): K-Means and a Gaussian Mixture Model (the EM algorithm), scored
-with silhouette, Adjusted Rand Index and Normalised Mutual Information.
+Unsupervised (R2): K-Means and a Gaussian Mixture Model (the EM algorithm), scored with
+the Adjusted Rand Index and normalised mutual information.
+
 
 ## How to run
 
@@ -99,22 +100,22 @@ A full run on a laptop processor takes roughly five minutes. The BERT encoding o
 ## Results at a glance
 
 All figures below come from the executable notebook on a stratified 24,000-row sample
-(16,800 train / 7,200 test), leak-free feature set unless stated.
+(16,800 train / 7,200 test), with the seventeen features the notebook selects.
 
-| Model | Accuracy | F1 | ROC-AUC |
-|---|---|---|---|
-| Histogram Gradient Boosting | 0.9986 | 0.9986 | 1.0000 |
-| Random Forest | 0.9986 | 0.9986 | 1.0000 |
-| Multi layer perceptron (17 features) | 0.9976 | 0.9976 | 1.0000 |
-| Logistic Regression | 0.9976 | 0.9976 | 1.0000 |
-| Perceptron | 0.9958 | 0.9958 | 0.9999 |
-| k-Nearest Neighbours | 0.9956 | 0.9956 | 0.9987 |
-| Decision Tree | 0.9954 | 0.9954 | 0.9954 |
-| Gaussian Naive Bayes | 0.9932 | 0.9932 | 0.9974 |
-| BERT with a small head | 0.9626 | 0.9630 | 0.9911 |
+| Model | Accuracy | F1 |
+|---|---|---|
+| Random Forest | 0.9986 | 0.9986 |
+| Gradient Boosting | 0.9978 | 0.9978 |
+| Multi layer perceptron | 0.9968 | 0.9968 |
+| Decision Tree | 0.9954 | 0.9954 |
+| Logistic Regression | 0.9947 | 0.9947 |
+| Gaussian Naive Bayes | 0.9928 | 0.9928 |
+| Perceptron | 0.9926 | 0.9926 |
+| k Nearest Neighbours | 0.9896 | 0.9896 |
+| BERT with a small head | 0.9626 | 0.9630 |
 
-Unsupervised: K-Means recovers the two classes with ARI 0.881, the Gaussian mixture
-(EM) with ARI 0.915.
+Unsupervised: K-Means matches the two classes with ARI 0.869, the Gaussian mixture (EM)
+with ARI 0.963.
 
 Two findings are worth stating up front. First, three supplied columns compare the URL with
 the brand's official URL or title, so they come close to encoding the label. The notebook
