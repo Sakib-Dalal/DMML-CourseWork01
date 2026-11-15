@@ -91,22 +91,8 @@ The notebook finds the dataset automatically by walking up from its own working
 directory until it reaches `Datasets/`, so it runs from either the repository root
 or the `Notebook/` folder.
 
-A full run on a laptop processor takes roughly 5–10 minutes; the BERT encoding of
+A full run on a laptop processor takes roughly five minutes. The BERT encoding of
 24,000 URLs is the slowest step.
-
-## Outputs
-
-Running the notebook writes the result tables to `Datasets/Results/`:
-
-| File | Contents |
-|---|---|
-| `model_comparison.csv` | Accuracy, precision, recall, F1 and ROC-AUC for all eleven models (leak-free features) |
-| `model_comparison_ceiling.csv` | The same seven classical models on the full feature set, including the similarity columns |
-| `leakage_ablation.csv` | Ceiling versus leak-free F1 and accuracy, per model |
-| `clustering_comparison.csv` | K-Means versus Gaussian mixture, with ARI, NMI and silhouette |
-| `em_sensitivity.csv` | The EM stability sweep across components, covariance types and initialisations |
-| `feature_importance.csv` | The three-method feature ranking |
-| `decision_tree_check.csv` | Overfitting check for the trees against the forest |
 
 ## Results at a glance
 
@@ -117,25 +103,23 @@ All figures below come from the executable notebook on a stratified 24,000-row s
 |---|---|---|---|
 | Histogram Gradient Boosting | 0.9986 | 0.9986 | 1.0000 |
 | Random Forest | 0.9986 | 0.9986 | 1.0000 |
-| MLP (17 engineered features) | 0.9976 | 0.9976 | 1.0000 |
+| Multi layer perceptron (17 features) | 0.9976 | 0.9976 | 1.0000 |
 | Logistic Regression | 0.9976 | 0.9976 | 1.0000 |
-| Character CNN on raw URL | 0.9967 | 0.9967 | 0.9984 |
+| Character CNN on the URL | 0.9967 | 0.9967 | 0.9984 |
 | Perceptron | 0.9958 | 0.9958 | 0.9999 |
 | k-Nearest Neighbours | 0.9956 | 0.9956 | 0.9987 |
 | Decision Tree | 0.9954 | 0.9954 | 0.9954 |
-| TF-IDF characters + logistic regression | 0.9932 | 0.9932 | 0.9988 |
 | Gaussian Naive Bayes | 0.9932 | 0.9932 | 0.9974 |
-| BERT-lite + MLP head | 0.9626 | 0.9630 | 0.9911 |
+| BERT with a small head | 0.9626 | 0.9630 | 0.9911 |
 
 Unsupervised: K-Means recovers the two classes with ARI 0.881, the Gaussian mixture
 (EM) with ARI 0.915.
 
-Two findings are worth stating up front. First, `URLSimilarityIndex` and the two title
-match scores are computed against the brand's official URL, so they come close to
-encoding the label; removing them costs under a percentage point of F1, which is reported
-explicitly rather than hidden. Second, the frozen two-layer BERT embedding is the
-weakest text representation tested - the plain character CNN trained from scratch beats
-it, which is the main result of the neural network section.
+Two findings are worth stating up front. First, three supplied columns compare the URL with
+the brand's official URL or title, so they come close to encoding the label. The notebook
+removes those three before modelling and explains the reason in Step 7. Second, the frozen
+two layer BERT embedding is the weakest text representation tested. The character CNN
+trained from nothing beats it, which is the main result of the neural network section.
 
 ## Repository layout
 
@@ -144,7 +128,6 @@ DMML-CourseWork01/
 ├── DataMining&MachineLearning_Coursework_01.ipynb   the whole implementation
 ├── Datasets/
 │   └── PhiUSIIL_Phishing_URL_Dataset.csv            the raw dataset
-├── Notebook/                                        scratch space
 ├── Guide/                                           coursework brief and submission rules (not tracked)
 └── README.md
 ```
@@ -152,7 +135,7 @@ DMML-CourseWork01/
 ## Notes and limitations
 
 * Models are trained on a stratified sample of 24,000 rows rather than the full
-  235,795, so that the notebook runs end to end on a laptop in a few minutes. The
+  235,370, so that the notebook runs end to end on a laptop in a few minutes. The
   conclusions about which feature families matter are unaffected; the absolute
   scores would move by a fraction of a percentage point on the full data.
 * All examples come from a single collection period, so no temporal split is
