@@ -52,16 +52,18 @@ unzip phiusiil+phishing+url+dataset.zip
 | **R1** Project topic, direction and research questions | Notebook, Step 1 |
 | **R2** Cleaning, EDA, visualisation, feature selection and evaluation, clustering with metrics | Notebook, Steps 3–9 |
 | **R3** At least three classical ML algorithms, compared with the right metrics, plus a discussion of decision trees | Notebook, Steps 10–11 |
-| **R4** Neural network models, trained, tuned and compared | Notebook, Step 12 |
+| **R4** Neural network models, trained, tuned and compared | Notebook, Steps 12 to 13 |
 
 ### Models compared
 
 Classical (R3): Gaussian Naive Bayes, Logistic Regression, Perceptron,
 k-Nearest Neighbours, Decision Tree, Random Forest, Histogram Gradient Boosting.
 
-Neural (R4): Multi-Layer Perceptron on engineered features, BERT-lite
-(`google/bert_uncased_L-2_H-128_A-2`) mean-pooled URL embeddings with an MLP head,
-and a character-level 1D CNN trained on the raw URL string.
+Neural (R4): a Multi-Layer Perceptron on the engineered features, and BERT-lite
+(`google/bert_uncased_L-2_H-128_A-2`) mean-pooled URL embeddings with an MLP head.
+
+No convolutional network is used. Section 3.2 of the brief ties the CNN to an image
+dataset, and this topic has no image data. Step 12.3 of the notebook records the reason.
 
 Unsupervised (R2): K-Means and a Gaussian Mixture Model (the EM algorithm), scored
 with silhouette, Adjusted Rand Index and Normalised Mutual Information.
@@ -105,7 +107,6 @@ All figures below come from the executable notebook on a stratified 24,000-row s
 | Random Forest | 0.9986 | 0.9986 | 1.0000 |
 | Multi layer perceptron (17 features) | 0.9976 | 0.9976 | 1.0000 |
 | Logistic Regression | 0.9976 | 0.9976 | 1.0000 |
-| Character CNN on the URL | 0.9967 | 0.9967 | 0.9984 |
 | Perceptron | 0.9958 | 0.9958 | 0.9999 |
 | k-Nearest Neighbours | 0.9956 | 0.9956 | 0.9987 |
 | Decision Tree | 0.9954 | 0.9954 | 0.9954 |
@@ -118,8 +119,8 @@ Unsupervised: K-Means recovers the two classes with ARI 0.881, the Gaussian mixt
 Two findings are worth stating up front. First, three supplied columns compare the URL with
 the brand's official URL or title, so they come close to encoding the label. The notebook
 removes those three before modelling and explains the reason in Step 7. Second, the frozen
-two layer BERT embedding is the weakest text representation tested. The character CNN
-trained from nothing beats it, which is the main result of the neural network section.
+two layer BERT embedding is the weakest model in the notebook. The page features carry more
+information than the whole address string, which is the main result of the neural section.
 
 ## Repository layout
 
