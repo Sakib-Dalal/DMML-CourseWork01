@@ -17,10 +17,10 @@ phishing, and it asks a second question along the way: which kind of evidence
 actually carries the signal — the cheap text of the URL, or the signals taken from
 the page behind it?
 
-The whole implementation lives in a single notebook:
+The whole implementation lives in a single notebook, inside the `Notebook` folder:
 
 ```
-DataMining&MachineLearning_Coursework_01.ipynb
+Notebook/DataMining&MachineLearning_Coursework_01.ipynb
 ```
 
 ## Dataset
@@ -78,7 +78,7 @@ source ~/myenv/bin/activate
 pip install seaborn transformers
 
 # 3. from the repository root, open and run the notebook
-jupyter notebook "DataMining&MachineLearning_Coursework_01.ipynb"
+jupyter notebook "Notebook/DataMining&MachineLearning_Coursework_01.ipynb"
 ```
 
 Or execute it end to end without opening a browser:
@@ -86,12 +86,12 @@ Or execute it end to end without opening a browser:
 ```bash
 jupyter nbconvert --to notebook --execute --inplace \
   --ExecutePreprocessor.timeout=1800 \
-  "DataMining&MachineLearning_Coursework_01.ipynb"
+  "Notebook/DataMining&MachineLearning_Coursework_01.ipynb"
 ```
 
-The notebook finds the dataset automatically by walking up from its own working
-directory until it reaches `Datasets/`, so it runs from either the repository root
-or the `Notebook/` folder.
+The notebook finds the dataset by walking up from its own working directory until it
+reaches `Datasets/`. It therefore runs from the repository root and from the `Notebook`
+folder without a change to any path.
 
 A full run on a laptop processor takes roughly five minutes. The BERT encoding of
 24,000 URLs is the slowest step.
@@ -126,10 +126,11 @@ information than the whole address string, which is the main result of the neura
 
 ```
 DMML-CourseWork01/
-├── DataMining&MachineLearning_Coursework_01.ipynb   the whole implementation
+├── Notebook/
+│   └── DataMining&MachineLearning_Coursework_01.ipynb   the whole implementation
 ├── Datasets/
-│   └── PhiUSIIL_Phishing_URL_Dataset.csv            the raw dataset
-├── Guide/                                           coursework brief and submission rules (not tracked)
+│   └── PhiUSIIL_Phishing_URL_Dataset.csv                the raw dataset
+├── Guide/                                               brief and submission rules (not tracked)
 └── README.md
 ```
 
