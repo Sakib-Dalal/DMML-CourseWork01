@@ -1,0 +1,4 @@
+Model,Training accuracy,Test accuracy,Features used
+Decision Tree (default depth),1.0,0.9954,17
+Decision Tree (depth 3),0.9893,0.9879,17
+Random Forest (300 trees),1.0,0.9986,17
