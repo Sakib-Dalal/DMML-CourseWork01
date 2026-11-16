@@ -142,7 +142,7 @@ them, so the folder can be deleted at any time and rebuilt in about 90 seconds.
 
 | File | Contents |
 |---|---|
-| `best_model.joblib` | The model with the highest F1, which is the multi layer perceptron |
+| `best_model_<name>.joblib` | The model with the highest F1. The file name carries the model name, so the current one is `best_model_multi_layer_perceptron.joblib` |
 | `scaler.joblib` | The scaler fitted on the training rows. Any new row must pass through it first |
 | `features.joblib` | The seventeen feature names, in the order the model expects |
 | `cnn_weights.pt` | The weights of the one dimensional CNN, stored with torch |
