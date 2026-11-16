@@ -154,6 +154,11 @@ install does not fail when a machine has a slightly different Python. The versio
 below were produced with are written at the bottom of that file. It covers four groups: the data
 libraries, the graph libraries, torch for the CNN, and streamlit for the demo.
 
+This recipe was tested on a clean environment. A fresh virtual environment made with the four
+commands above installed numpy 2.5.3, pandas 3.0.6, scikit-learn 1.9.1, torch 2.14.1 and streamlit
+1.66.0, and the notebook run inside it wrote a `model_scores.csv` identical to the one in `Model/`.
+So the repository runs on a second machine from `requirements.txt` alone.
+
 ### 5.2 Run the notebook
 
 ```bash
