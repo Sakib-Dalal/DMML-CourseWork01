@@ -2,4 +2,6 @@ Guide
 .DS_Store
 .idea/
 .ipynb_checkpoints/
+__pycache__/
+*.pyc
 Datasets/phiusiil.zip
