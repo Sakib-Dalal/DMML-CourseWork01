@@ -147,10 +147,13 @@ pip install -r GUI/requirements.txt
 streamlit run GUI/app.py
 ```
 
-It opens at http://localhost:8501. The app shows a dropdown of twelve stored examples, the label
-that the dataset gives to the chosen website, the seventeen measurements the model reads, and the
-prediction with its probability. `.streamlit/config.toml` keeps the page on a white background, so
-start the app from the project root.
+It opens at http://localhost:8501. The app offers two ways in: one of the twelve stored examples,
+or any address you type. `.streamlit/config.toml` keeps the page on a white background, so start
+the app from the project root.
+
+A typed address uses a second model, because the main one reads page measurements that cannot be
+reproduced from a URL string. That second model reads only what can be counted in the address, and
+it is trained in Step 13.2 of the notebook.
 
 The app reads `Model/`, so run the notebook once before starting it. If that folder is missing,
 the app explains what to do instead of failing.
@@ -166,6 +169,8 @@ them, so the folder can be deleted at any time and rebuilt in about 90 seconds.
 | `scaler.joblib` | The scaler fitted on the training rows. Any new row must pass through it first |
 | `features.joblib` | The seventeen feature names, in the order the model expects |
 | `cnn_weights.pt` | The weights of the one dimensional CNN, stored with torch |
+| `url_model_random_forest.joblib` | The smaller model that reads only the address, used by the demo for a typed URL |
+| `url_features.joblib` | The fifteen address measurements that model expects |
 | `model_scores.csv` | Accuracy, precision, recall and F1 for all nine models |
 
 The scaler is saved next to the model on purpose. A model trained on scaled inputs gives wrong
