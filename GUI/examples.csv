@@ -1,0 +1,13 @@
+URL,True label,HasSocialNet,HasCopyrightInfo,HasDescription,IsHTTPS,IsResponsive,NoOfJS,NoOfSelfRef,HasSubmitButton,NoOfExternalRef,LineOfCode,NoOfImage,NoOfOtherSpecialCharsInURL,DegitRatioInURL,SpacialCharRatioInURL,HasHiddenFields,HasFavicon,LetterRatioInURL
+https://eika00112.wpenginepowered.com/02221ds/norge/,Phishing,0,0,0,1,0,0,0,0,4,94,1,5,0.192,0.096,0,0,0.558
+http://spmldg.hyperphp.com/,Phishing,0,0,0,0,0,1,1,0,1,2,0,2,0.0,0.077,0,0,0.654
+https://pages-help-services.start.page/,Phishing,1,0,0,1,0,0,0,0,11,385,5,4,0.0,0.105,0,0,0.684
+http://www.sz-xinheli.com,Phishing,0,0,1,0,0,2,0,0,0,15,0,2,0.0,0.08,0,0,0.48
+https://agr2a.vantechddns.com/ag2/,Phishing,0,0,0,1,1,1,0,0,1,2,0,4,0.059,0.118,0,0,0.588
+http://www.ifok.nowurl.fun,Phishing,0,0,0,0,0,0,0,0,0,8,0,2,0.0,0.08,0,0,0.48
+https://www.webhostface.com,Legitimate,1,1,1,1,1,16,148,1,71,1594,29,1,0.0,0.038,0,1,0.5
+https://www.beckleather.com,Legitimate,1,1,1,1,1,7,61,1,10,376,5,1,0.0,0.038,0,0,0.5
+https://www.gatwickexpress.com,Legitimate,1,1,1,1,1,7,147,1,134,1183,24,1,0.0,0.034,1,1,0.552
+https://www.dragonbank.com,Legitimate,1,1,1,1,1,12,19,1,20,1708,64,1,0.0,0.04,1,1,0.48
+https://www.virtual-boy.com,Legitimate,1,1,0,1,1,12,117,1,80,861,27,2,0.0,0.077,1,1,0.462
+https://www.postgrespro.ru,Legitimate,1,1,1,1,1,5,119,1,56,2210,85,1,0.0,0.04,1,1,0.48

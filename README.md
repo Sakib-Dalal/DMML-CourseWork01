@@ -131,9 +131,28 @@ DMML-CourseWork01/
 ├── Datasets/
 │   └── PhiUSIIL_Phishing_URL_Dataset.csv                the raw dataset
 ├── Model/                                               written by the notebook
+├── GUI/                                                 Streamlit demo app
 ├── Guide/                                               brief and submission rules (not tracked)
 └── README.md
 ```
+
+## Interactive demo
+
+`GUI/` holds a small Streamlit app that loads the saved model and lets you test it on real
+websites from the dataset.
+
+```bash
+source ~/myenv/bin/activate
+pip install -r GUI/requirements.txt
+streamlit run GUI/app.py
+```
+
+It opens at http://localhost:8501. The app shows the model in use, the scores of all nine models,
+a dropdown of twelve stored examples, the seventeen measurements as editable numbers, and the
+prediction with its probability next to the true label.
+
+The app reads `Model/`, so run the notebook once before starting it. If that folder is missing,
+the app explains what to do instead of failing.
 
 ## Saved model
 
