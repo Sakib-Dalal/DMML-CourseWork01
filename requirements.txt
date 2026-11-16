@@ -1,0 +1,34 @@
+# Everything the notebook and the demo need, so the repository can be run on any machine.
+# Python 3.11 or newer is required. The work was tested on Python 3.14.
+#
+# These are minimum versions rather than exact pins, so an install does not fail when a
+# marker's machine has a slightly older or newer Python. On a current Python the install
+# picks the same versions the results below were produced with, which are listed at the
+# bottom of this file.
+
+# data and models
+numpy>=2.1
+pandas>=2.2
+scikit-learn>=1.5
+joblib>=1.4
+
+# graphs
+matplotlib>=3.8
+seaborn>=0.13
+
+# the neural network in Step 12
+torch>=2.4
+
+# notebook
+notebook>=7.0
+nbconvert>=7.10
+nbformat>=5.9
+ipykernel>=6.29
+
+# demo app
+streamlit>=1.35
+
+# Tested with Python 3.14 and:
+# numpy 2.5.3, pandas 3.0.6, scikit-learn 1.9.1, joblib 1.6.0, matplotlib 3.11.2,
+# seaborn 0.13.2, torch 2.14.1, notebook 7.6.3, nbconvert 7.17.1, nbformat 5.11.1,
+# ipykernel 7.3.0, streamlit 1.66.0

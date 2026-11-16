@@ -4,4 +4,7 @@ Guide
 .ipynb_checkpoints/
 __pycache__/
 *.pyc
+.venv/
+venv/
+
 Datasets/phiusiil.zip

@@ -1,5 +1,8 @@
-streamlit==1.66.0
-scikit-learn==1.9.1
-pandas==3.0.6
-numpy==2.5.3
-joblib>=1.3
+# Only the five libraries the app itself imports, for a machine that does not need the notebook.
+# Minimum versions, so this installs on any Python 3.11 or newer.
+# Tested with streamlit 1.66.0, scikit-learn 1.9.1, pandas 3.0.6, numpy 2.5.3, joblib 1.6.0.
+streamlit>=1.35
+scikit-learn>=1.5
+pandas>=2.2
+numpy>=2.1
+joblib>=1.4

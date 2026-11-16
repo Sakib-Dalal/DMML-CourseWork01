@@ -7,10 +7,23 @@ like. The app says whether the model thinks it is a phishing page or a legitimat
 
 ## Run it
 
+From the project root, with the virtual environment active:
+
+```bash
+source .venv/bin/activate
+pip install -r requirements.txt
+streamlit run GUI/app.py
+```
+
+`pip install -r requirements.txt` at the root installs everything the notebook needs as well. On a
+machine that only needs the app, `pip install -r GUI/requirements.txt` is enough, because that file
+lists the five libraries the app itself imports.
+
+The virtual environment is made in section 5.1 of the main README. This machine already has one at
+`~/myenv`, which works too:
+
 ```bash
 source ~/myenv/bin/activate
-pip install -r GUI/requirements.txt
-streamlit run GUI/app.py
 ```
 
 The app opens at http://localhost:8501. Start it from the project root, because that is where

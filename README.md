@@ -101,14 +101,62 @@ DMML-CourseWork01/
 
 ## 5. How to run
 
+Python 3.11 or newer is needed. The work was tested on Python 3.14.
+
+### 5.1 Make a virtual environment
+
+The brief recommends conda or uv. A plain virtual environment works too, and it needs nothing
+beyond Python itself.
+
+The interpreter has to be Python 3.11 or newer. On this machine the default `python3` is older than
+that, so the working interpreter `/opt/homebrew/bin/python3.14` is named in the command:
+
 ```bash
-# 1. activate the environment
+cd DMML-CourseWork01
+/opt/homebrew/bin/python3.14 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+On another machine, use whichever Python 3.11 or newer is installed:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+On Windows the middle line is different:
+
+```bash
+.venv\Scripts\activate
+```
+
+The environment is activated again in each new terminal with `source .venv/bin/activate`. Leaving
+it takes the word `deactivate`.
+
+The environment folder is not stored in this repository, and it should not be, because it holds
+absolute paths and compiled libraries that belong to one machine. `requirements.txt` is the part
+that travels: it rebuilds the same set of libraries on any machine in a few minutes. A marker
+therefore clones the repository, runs the four commands above, and starts the notebook. Nothing
+else has to be sent over.
+
+The work was developed in a virtual environment at `~/myenv`, which can be used instead of a new
+one:
+
+```bash
 source ~/myenv/bin/activate
+```
 
-# 2. install what the notebook needs
-pip install pandas numpy scikit-learn matplotlib seaborn
+`requirements.txt` gives a minimum version for each library rather than an exact pin, so the
+install does not fail when a machine has a slightly different Python. The versions the results
+below were produced with are written at the bottom of that file. It covers four groups: the data
+libraries, the graph libraries, torch for the CNN, and streamlit for the demo.
 
-# 3. run the notebook from the repository root
+### 5.2 Run the notebook
+
+```bash
 jupyter notebook "Notebook/DataMining&MachineLearning_Coursework_01.ipynb"
 ```
 
@@ -125,7 +173,18 @@ The notebook finds the dataset by walking up from its own working directory unti
 any path.
 
 A full run takes about 90 seconds on a laptop processor, and the CNN training is the slowest step.
-Every result in this README comes from that run.
+Every result in this README comes from that run. It also writes the model files into `Model/`.
+
+### 5.3 Run the demo
+
+The demo needs the `Model` folder, so run the notebook first.
+
+```bash
+streamlit run GUI/app.py
+```
+
+It opens at http://localhost:8501. For a machine that only needs the app, `GUI/requirements.txt`
+lists the five libraries the app imports, at the versions it was tested with.
 
 ## 6. Results
 
