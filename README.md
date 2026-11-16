@@ -130,9 +130,28 @@ DMML-CourseWork01/
 │   └── DataMining&MachineLearning_Coursework_01.ipynb   the whole implementation
 ├── Datasets/
 │   └── PhiUSIIL_Phishing_URL_Dataset.csv                the raw dataset
+├── Model/                                               written by the notebook
 ├── Guide/                                               brief and submission rules (not tracked)
 └── README.md
 ```
+
+## Saved model
+
+Step 13.1 of the notebook writes five files to `Model/`. Running the notebook again overwrites
+them, so the folder can be deleted at any time and rebuilt in about 90 seconds.
+
+| File | Contents |
+|---|---|
+| `best_model.joblib` | The model with the highest F1, which is the multi layer perceptron |
+| `scaler.joblib` | The scaler fitted on the training rows. Any new row must pass through it first |
+| `features.joblib` | The seventeen feature names, in the order the model expects |
+| `cnn_weights.pt` | The weights of the one dimensional CNN, stored with torch |
+| `model_scores.csv` | Accuracy, precision, recall and F1 for all nine models |
+
+The scaler is saved next to the model on purpose. A model trained on scaled inputs gives wrong
+answers if it is fed raw values, and that mistake is easy to make when a model is used months
+later. The notebook loads the model back and scores it once more, so the stored file is proven to
+work rather than merely written.
 
 ## Notes and limitations
 
