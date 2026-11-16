@@ -59,10 +59,12 @@ unzip phiusiil+phishing+url+dataset.zip
 Classical (R3): Gaussian Naive Bayes, Logistic Regression, Perceptron,
 k-Nearest Neighbours, Decision Tree, Random Forest, Gradient Boosting.
 
-Neural (R4): a Multi-Layer Perceptron on the engineered features, tuned over four layer shapes.
+Neural (R4): a Multi-Layer Perceptron on the engineered features, tuned over four layer shapes,
+and a one dimensional CNN that reads the URL as a string of characters.
 
-No convolutional network is used. Section 3.2 of the brief ties the CNN to an image
-dataset, and this topic has no image data. The notebook says so in the Step 12 introduction.
+The brief pairs the CNN with image data on page 3. This topic has no images, so the convolution
+is applied in one dimension to the characters of the URL, which is the natural analogue. Step
+12.4 of the notebook explains the choice.
 
 Unsupervised (R2): K-Means and a Gaussian Mixture Model (the EM algorithm), scored with
 the Adjusted Rand Index and normalised mutual information.
@@ -93,8 +95,8 @@ The notebook finds the dataset by walking up from its own working directory unti
 reaches `Datasets/`. It therefore runs from the repository root and from the `Notebook`
 folder without a change to any path.
 
-A full run on a laptop processor takes about 45 seconds. The gradient boosting model is the
-slowest step.
+A full run on a laptop processor takes about two and a half minutes. The CNN training is the
+slowest step, at roughly 19 seconds per epoch.
 
 ## Results at a glance
 
@@ -108,6 +110,7 @@ All figures below come from the executable notebook on the full dataset, 235,370
 | Gradient Boosting | 0.9993 | 0.9994 |
 | Decision Tree | 0.9986 | 0.9988 |
 | Logistic Regression | 0.9984 | 0.9986 |
+| One dimensional CNN | 0.9980 | 0.9982 |
 | k Nearest Neighbours | 0.9978 | 0.9981 |
 | Perceptron | 0.9974 | 0.9977 |
 | Gaussian Naive Bayes | 0.9944 | 0.9951 |
@@ -134,8 +137,8 @@ DMML-CourseWork01/
 
 ## Notes and limitations
 
-* The models are trained on all 235,370 rows, and the whole notebook runs in about
-  45 seconds on a laptop processor.
+* The models are trained on all 235,370 rows. The whole notebook runs in about two and
+  a half minutes on a laptop processor, and the CNN training is the slowest step.
 * All examples come from a single collection period, so no temporal split is
   possible. A model trained on this data would decay as phishing campaigns change.
 * No convolutional network is used, because the brief pairs the CNN with an image dataset
