@@ -35,7 +35,7 @@ the same code.
 
 The `Model` folder, because that is where `best_model_<name>.joblib`, `scaler.joblib`,
 `features.joblib`, `url_model_random_forest.joblib` and `url_features.joblib` are read from. The
-notebook writes that folder in Steps 13.1 and 13.2, so run the notebook once before starting the
+notebook writes that folder in Steps 13.2 and 13.3, so run the notebook once before starting the
 app. If the folder is missing the app says so instead of crashing.
 
 ## Example data

@@ -153,14 +153,14 @@ the app from the project root.
 
 A typed address uses a second model, because the main one reads page measurements that cannot be
 reproduced from a URL string. That second model reads only what can be counted in the address, and
-it is trained in Step 13.2 of the notebook.
+it is trained in Step 13.3 of the notebook.
 
 The app reads `Model/`, so run the notebook once before starting it. If that folder is missing,
 the app explains what to do instead of failing.
 
 ## Saved model
 
-Step 13.1 of the notebook writes five files to `Model/`. Running the notebook again overwrites
+Step 13.2 of the notebook writes seven files to `Model/`. Running the notebook again overwrites
 them, so the folder can be deleted at any time and rebuilt in about 90 seconds.
 
 | File | Contents |
