@@ -147,9 +147,10 @@ pip install -r GUI/requirements.txt
 streamlit run GUI/app.py
 ```
 
-It opens at http://localhost:8501. The app shows the model in use, the scores of all nine models,
-a dropdown of twelve stored examples, the seventeen measurements as editable numbers, and the
-prediction with its probability next to the true label.
+It opens at http://localhost:8501. The app shows a dropdown of twelve stored examples, the label
+that the dataset gives to the chosen website, the seventeen measurements the model reads, and the
+prediction with its probability. `.streamlit/config.toml` keeps the page on a white background, so
+start the app from the project root.
 
 The app reads `Model/`, so run the notebook once before starting it. If that folder is missing,
 the app explains what to do instead of failing.
