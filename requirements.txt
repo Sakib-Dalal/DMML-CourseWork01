@@ -16,8 +16,9 @@ joblib>=1.4
 matplotlib>=3.8
 seaborn>=0.13
 
-# the neural network in Step 12
+# the neural networks in Step 12
 torch>=2.4
+torchvision>=0.19
 
 # notebook
 notebook>=7.0
